@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Animals" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=THEONE;Initial Catalog=Animals;Integrated Security=True" SettingsObjectName="HumaneSocietyProject.Properties.Settings" SettingsPropertyName="AnimalsConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Animals" Member="Animals">
+    <Type Name="Animal">
+      <Column Name="Animal_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Type_Of" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Age" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Room_Location" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Food_Type" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Food_Amount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Price_Of_Adoption" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsAdopted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="HasShots" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Adopter" Member="Adopters">
+    <Type Name="Adopter">
+      <Column Name="Person_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Home_Address" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Type_Of_Home" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Owns_Other_Pets" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Primary_Veteranarian" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="HasChildren" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LifeStyle_and_Activity_Levels" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Experience_With_Previous_Pets" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Employee" Member="Employees">
+    <Type Name="Employee">
+      <Column Name="Employee_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Employee_Name" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

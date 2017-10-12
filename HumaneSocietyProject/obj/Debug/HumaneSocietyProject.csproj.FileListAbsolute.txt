@@ -1,0 +1,6 @@
+c:\users\matthew miranda\documents\visual studio 2015\Projects\HumaneSocietyProject\HumaneSocietyProject\bin\Debug\HumaneSocietyProject.exe.config
+C:\Users\Matthew Miranda\documents\visual studio 2015\Projects\HumaneSocietyProject\HumaneSocietyProject\obj\Debug\HumaneSocietyProject.csprojResolveAssemblyReference.cache
+C:\Users\Matthew Miranda\documents\visual studio 2015\Projects\HumaneSocietyProject\HumaneSocietyProject\bin\Debug\HumaneSocietyProject.exe
+C:\Users\Matthew Miranda\documents\visual studio 2015\Projects\HumaneSocietyProject\HumaneSocietyProject\bin\Debug\HumaneSocietyProject.pdb
+C:\Users\Matthew Miranda\documents\visual studio 2015\Projects\HumaneSocietyProject\HumaneSocietyProject\obj\Debug\HumaneSocietyProject.exe
+C:\Users\Matthew Miranda\documents\visual studio 2015\Projects\HumaneSocietyProject\HumaneSocietyProject\obj\Debug\HumaneSocietyProject.pdb
