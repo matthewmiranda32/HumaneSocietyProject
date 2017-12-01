@@ -33,12 +33,12 @@ namespace HumaneSocietyProject
     partial void InsertAnimal(Animal instance);
     partial void UpdateAnimal(Animal instance);
     partial void DeleteAnimal(Animal instance);
-    partial void InsertAdopter(Adopter instance);
-    partial void UpdateAdopter(Adopter instance);
-    partial void DeleteAdopter(Adopter instance);
     partial void InsertEmployee(Employee instance);
     partial void UpdateEmployee(Employee instance);
     partial void DeleteEmployee(Employee instance);
+    partial void InsertAdopter(Adopter instance);
+    partial void UpdateAdopter(Adopter instance);
+    partial void DeleteAdopter(Adopter instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
@@ -79,19 +79,19 @@ namespace HumaneSocietyProject
 			}
 		}
 		
-		public System.Data.Linq.Table<Adopter> Adopters
-		{
-			get
-			{
-				return this.GetTable<Adopter>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Employee> Employees
 		{
 			get
 			{
 				return this.GetTable<Employee>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Adopter> Adopters
+		{
+			get
+			{
+				return this.GetTable<Adopter>();
 			}
 		}
 	}
@@ -374,6 +374,92 @@ namespace HumaneSocietyProject
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Employee")]
+	public partial class Employee : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Employee_ID;
+		
+		private string _Employee_Name;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnEmployee_IDChanging(int value);
+    partial void OnEmployee_IDChanged();
+    partial void OnEmployee_NameChanging(string value);
+    partial void OnEmployee_NameChanged();
+    #endregion
+		
+		public Employee()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Employee_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Employee_ID
+		{
+			get
+			{
+				return this._Employee_ID;
+			}
+			set
+			{
+				if ((this._Employee_ID != value))
+				{
+					this.OnEmployee_IDChanging(value);
+					this.SendPropertyChanging();
+					this._Employee_ID = value;
+					this.SendPropertyChanged("Employee_ID");
+					this.OnEmployee_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Employee_Name", DbType="VarChar(MAX)")]
+		public string Employee_Name
+		{
+			get
+			{
+				return this._Employee_Name;
+			}
+			set
+			{
+				if ((this._Employee_Name != value))
+				{
+					this.OnEmployee_NameChanging(value);
+					this.SendPropertyChanging();
+					this._Employee_Name = value;
+					this.SendPropertyChanged("Employee_Name");
+					this.OnEmployee_NameChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Adopter")]
 	public partial class Adopter : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -388,15 +474,19 @@ namespace HumaneSocietyProject
 		
 		private string _Type_Of_Home;
 		
-		private System.Nullable<bool> _Owns_Other_Pets;
+		private string _Owns_Other_Pets;
 		
-		private string _Primary_Veteranarian;
+		private string _Primary_Veterinarian;
 		
 		private System.Nullable<bool> _HasChildren;
 		
+		private System.Nullable<bool> _YoungChildren;
+		
 		private string _LifeStyle_and_Activity_Levels;
 		
-		private string _Experience_With_Previous_Pets;
+		private System.Nullable<bool> _Experience_With_Previous_Pets;
+		
+		private string _Other_Pets_Owned;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -410,16 +500,20 @@ namespace HumaneSocietyProject
     partial void OnHome_AddressChanged();
     partial void OnType_Of_HomeChanging(string value);
     partial void OnType_Of_HomeChanged();
-    partial void OnOwns_Other_PetsChanging(System.Nullable<bool> value);
+    partial void OnOwns_Other_PetsChanging(string value);
     partial void OnOwns_Other_PetsChanged();
-    partial void OnPrimary_VeteranarianChanging(string value);
-    partial void OnPrimary_VeteranarianChanged();
+    partial void OnPrimary_VeterinarianChanging(string value);
+    partial void OnPrimary_VeterinarianChanged();
     partial void OnHasChildrenChanging(System.Nullable<bool> value);
     partial void OnHasChildrenChanged();
+    partial void OnYoungChildrenChanging(System.Nullable<bool> value);
+    partial void OnYoungChildrenChanged();
     partial void OnLifeStyle_and_Activity_LevelsChanging(string value);
     partial void OnLifeStyle_and_Activity_LevelsChanged();
-    partial void OnExperience_With_Previous_PetsChanging(string value);
+    partial void OnExperience_With_Previous_PetsChanging(System.Nullable<bool> value);
     partial void OnExperience_With_Previous_PetsChanged();
+    partial void OnOther_Pets_OwnedChanging(string value);
+    partial void OnOther_Pets_OwnedChanged();
     #endregion
 		
 		public Adopter()
@@ -427,7 +521,7 @@ namespace HumaneSocietyProject
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Person_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Person_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
 		public int Person_ID
 		{
 			get
@@ -507,8 +601,8 @@ namespace HumaneSocietyProject
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Owns_Other_Pets", DbType="Bit")]
-		public System.Nullable<bool> Owns_Other_Pets
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Owns_Other_Pets", DbType="VarChar(MAX)")]
+		public string Owns_Other_Pets
 		{
 			get
 			{
@@ -527,22 +621,22 @@ namespace HumaneSocietyProject
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Primary_Veteranarian", DbType="VarChar(MAX)")]
-		public string Primary_Veteranarian
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Primary_Veterinarian", DbType="VarChar(MAX)")]
+		public string Primary_Veterinarian
 		{
 			get
 			{
-				return this._Primary_Veteranarian;
+				return this._Primary_Veterinarian;
 			}
 			set
 			{
-				if ((this._Primary_Veteranarian != value))
+				if ((this._Primary_Veterinarian != value))
 				{
-					this.OnPrimary_VeteranarianChanging(value);
+					this.OnPrimary_VeterinarianChanging(value);
 					this.SendPropertyChanging();
-					this._Primary_Veteranarian = value;
-					this.SendPropertyChanged("Primary_Veteranarian");
-					this.OnPrimary_VeteranarianChanged();
+					this._Primary_Veterinarian = value;
+					this.SendPropertyChanged("Primary_Veterinarian");
+					this.OnPrimary_VeterinarianChanged();
 				}
 			}
 		}
@@ -567,6 +661,26 @@ namespace HumaneSocietyProject
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_YoungChildren", DbType="Bit")]
+		public System.Nullable<bool> YoungChildren
+		{
+			get
+			{
+				return this._YoungChildren;
+			}
+			set
+			{
+				if ((this._YoungChildren != value))
+				{
+					this.OnYoungChildrenChanging(value);
+					this.SendPropertyChanging();
+					this._YoungChildren = value;
+					this.SendPropertyChanged("YoungChildren");
+					this.OnYoungChildrenChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LifeStyle_and_Activity_Levels", DbType="VarChar(MAX)")]
 		public string LifeStyle_and_Activity_Levels
 		{
@@ -587,8 +701,8 @@ namespace HumaneSocietyProject
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Experience_With_Previous_Pets", DbType="VarChar(MAX)")]
-		public string Experience_With_Previous_Pets
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Experience_With_Previous_Pets", DbType="Bit")]
+		public System.Nullable<bool> Experience_With_Previous_Pets
 		{
 			get
 			{
@@ -607,88 +721,22 @@ namespace HumaneSocietyProject
 			}
 		}
 		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Employee")]
-	public partial class Employee : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Employee_ID;
-		
-		private string _Employee_Name;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnEmployee_IDChanging(int value);
-    partial void OnEmployee_IDChanged();
-    partial void OnEmployee_NameChanging(string value);
-    partial void OnEmployee_NameChanged();
-    #endregion
-		
-		public Employee()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Employee_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Employee_ID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Other_Pets_Owned", DbType="VarChar(MAX)")]
+		public string Other_Pets_Owned
 		{
 			get
 			{
-				return this._Employee_ID;
+				return this._Other_Pets_Owned;
 			}
 			set
 			{
-				if ((this._Employee_ID != value))
+				if ((this._Other_Pets_Owned != value))
 				{
-					this.OnEmployee_IDChanging(value);
+					this.OnOther_Pets_OwnedChanging(value);
 					this.SendPropertyChanging();
-					this._Employee_ID = value;
-					this.SendPropertyChanged("Employee_ID");
-					this.OnEmployee_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Employee_Name", DbType="VarChar(MAX)")]
-		public string Employee_Name
-		{
-			get
-			{
-				return this._Employee_Name;
-			}
-			set
-			{
-				if ((this._Employee_Name != value))
-				{
-					this.OnEmployee_NameChanging(value);
-					this.SendPropertyChanging();
-					this._Employee_Name = value;
-					this.SendPropertyChanged("Employee_Name");
-					this.OnEmployee_NameChanged();
+					this._Other_Pets_Owned = value;
+					this.SendPropertyChanged("Other_Pets_Owned");
+					this.OnOther_Pets_OwnedChanged();
 				}
 			}
 		}

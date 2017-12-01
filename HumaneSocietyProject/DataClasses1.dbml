@@ -14,23 +14,25 @@
       <Column Name="HasShots" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Adopter" Member="Adopters">
-    <Type Name="Adopter">
-      <Column Name="Person_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="Home_Address" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="Type_Of_Home" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="Owns_Other_Pets" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="Primary_Veteranarian" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="HasChildren" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="LifeStyle_and_Activity_Levels" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="Experience_With_Previous_Pets" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Employee" Member="Employees">
     <Type Name="Employee">
       <Column Name="Employee_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Employee_Name" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Adopter" Member="Adopters">
+    <Type Name="Adopter">
+      <Column Name="Person_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Home_Address" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Type_Of_Home" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Owns_Other_Pets" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Primary_Veterinarian" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="HasChildren" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="YoungChildren" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LifeStyle_and_Activity_Levels" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Experience_With_Previous_Pets" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Other_Pets_Owned" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

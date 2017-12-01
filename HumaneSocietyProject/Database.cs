@@ -12,7 +12,7 @@ namespace HumaneSocietyProject
     {
         private System.Data.DataSet dataSet;
         
-        public void CreateTableForAdopters()
+        public DataTable CreateTableForAdopters()
         {
             System.Data.DataTable table = new DataTable();
 
@@ -23,16 +23,17 @@ namespace HumaneSocietyProject
             table.Columns.Add("Owns Other Pets?", typeof(string));
             table.Columns.Add("Primary Veteranarian", typeof(string));
             table.Columns.Add("Has Children?", typeof(string));
+            table.Columns.Add("Young Children?", typeof(string));
             table.Columns.Add("Lifestyle and Activity Level", typeof(string));
             table.Columns.Add("Previous Experience With Pets?", typeof(string));
 
-            table.Rows.Add();
-
+            return table;
         }
-        DataClasses1DataContext dataclasses1 = new DataClasses1DataContext();
 
-        public void AddValuestoAdopters()
+        public void AddValuestoAdopters(Adopter adopter)
         {
+            DataTable table = CreateTableForAdopters();
+            table.Rows.Add(adopter.Person_ID, adopter.adopterName, adopter.address, adopter.typeOfHome, adopter.otherPets, adopter.vet, adopter.kids, adopter.kidsAges, adopter.activityLevel, adopter.petExperience);
 
         }
     }

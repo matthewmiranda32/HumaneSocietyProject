@@ -60,7 +60,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Room.cs" />
+    <Compile Include="AdoptionFee.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
